@@ -1,5 +1,3 @@
-#                                           Craft - Hack The Box Walkthrough
-
 Victim IP: 10.10.10.110
 Victim OS: Linux
 
