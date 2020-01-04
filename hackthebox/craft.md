@@ -102,15 +102,16 @@ Modify the SQL in the try statement to select all users from the database
 ![db_dump](/images/dump_users.png)
 
 Authenticate with discovered credentials and enumerate the git repository
-All commits/merge requests ==> ssh private key, vault write commands …
-<screenshot>
+All commits/merge requests ==> ssh private key and vault write commands are discovered
+![gilfoyle_ssh_key](/images/gilfolye_ssh.png)
   
-For now authenticate with the SSH private key and enter gilfoyle's password (dumped from the db/git password) as passphrase
+Save the ssh private key, apply the normal permissions (chmod 400), and then authenticate with the SSH private key and enter gilfoyle's password (dumped from the db/git password) as passphrase.
+![gilfoyle_ssh_key](/images/user.txt.png)
 
 ### Elevating to root – Leveraging Vault SSH Secrets Engine
 After obtaining user access on the machine more enumeration is required to discover interesting escalation vectors. Running linuxenum and privesc scripts did not recover any vulnerabilities right away but did point out the vault write.
 
-### Exploring vault:
+Exploring vault:
 ![vault_secrets](/images/vault_secrets_list.png)
 
 Gilfoyle's OTP setup:
