@@ -46,7 +46,7 @@ The "API" link points to api.craft.htb and the "Sign in" button to "gogs.craft.h
 ### Enumeration - https://api.craft.htb
 Small API with basic GET, POST, PUT, DELETE actions, might be an interesting point of entry.
 Authentication required for POST, PUT
-![api_craft](https://github.com/zomy22/zomy22.github.io/blob/master/hackthebox/craft_images/api_craft.png)
+![api_craft](/images/api_craft.png)
 
 ### Enumeration - https://gogs.craft.htb
 ![gogs](https://github.com/zomy22/zomy22.github.io/blob/master/hackthebox/craft_images/gogs_craft.png)
