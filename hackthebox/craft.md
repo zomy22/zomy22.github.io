@@ -50,9 +50,11 @@ Authentication required for POST, PUT
 
 ### Enumeration - https://gogs.craft.htb
 ![gogs](/images/gogs_craft.png)
+Clicking on __Explore__ leads to the public content of the repository.
+
 Repository housing the code and content for api.craft.htb:
 ![commits](/images/craft_api_repo.png)
-Reviewing all issues,commits and merge requests, dinesh’s credentials were accidentally commited and removed: 
+Reviewing all issues,commits and merge requests, dinesh's credentials were accidentally commited and removed: 
 ![dinesh_creds](/images/dinesh_creds.png)
 The issue fix by dinesh also shows a dangerous python function (eval):
 ![eval_in_issue_fix](/images/eval_in_issue_fix.png)
@@ -86,7 +88,7 @@ The payload in __test.py__ becomes:
 ![Test 4](/images/test3.png)
 
 It's says root! Well that was easy! 
-But wait no user.txt or root.txt flags. Of course it couldn’t be that easy 
+But wait no user.txt or root.txt flags. Of course it couldn't be that easy 
 
 Running "cat /etc/issue", LinEnum and linuxprivchecker again show that we are in a docker container
 Release: Alpine Linux 3.9
@@ -102,7 +104,7 @@ Authenticate with discovered credentials and enumerate the git repository
 All commits/merge requests ==> ssh private key, vault write commands …
 <screenshot>
   
-For now authenticate with the SSH private key and enter gilfoyle’s password (dumped from the db/git password) as passphrase
+For now authenticate with the SSH private key and enter gilfoyle's password (dumped from the db/git password) as passphrase
 
 ### Elevating to root – Leveraging Vault SSH Secrets Engine
 After obtaining user access on the machine more enumeration is required to discover interesting escalation vectors. Running linuxenum and privesc scripts did not recover any vulnerabilities right away but did point out the vault write.
@@ -110,7 +112,7 @@ After obtaining user access on the machine more enumeration is required to disco
 ### Exploring vault:
 ![vault_secrets](/images/vault_secrets_list.png)
 
-Gilfoyle’s OTP setup:
+Gilfoyle's OTP setup:
 
 ![otp_setup](/images/vault_write_ssh_otp.png)
 
