@@ -40,7 +40,6 @@ Service detection performed. Please report any incorrect results at https://nmap
 ```
 ### Enumerating the web page - https://craft.htb
 
-![homepage](https://github.com/zomy22/zomy22.github.io)
 
 The “API” link points to api.craft.htb and the “Sign in” button to “gogs.craft.htb” therefore we add these as entries to our hosts file in other to be able to resolve and reach them.
 
