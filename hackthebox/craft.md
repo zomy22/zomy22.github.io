@@ -48,7 +48,7 @@ The “API” link points to api.craft.htb and the “Sign in” button to “go
 
 ### Enumeration - https://api.craft.htb
 Small API with basic GET, POST, PUT, DELETE actions, might be an interesting point of entry.
-Authentication required for POST, PUT …
+Authentication required for POST, PUT
 <api_craft>
 
 ### Enumeration - https://gogs.craft.htb
