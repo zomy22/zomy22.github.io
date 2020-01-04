@@ -39,34 +39,41 @@ Service detection performed. Please report any incorrect results at https://nmap
 # Nmap done at Thu Dec 19 22:54:28 2019 -- 1 IP address (1 host up) scanned in 47.95 seconds
 ```
 ### Enumerating the web page - https://craft.htb
-
+![homepage](https://github.com/zomy22/zomy22.github.io/blob/master/hackthebox/craft_images/1_test.py.png)
 
 The “API” link points to api.craft.htb and the “Sign in” button to “gogs.craft.htb” therefore we add these as entries to our hosts file in other to be able to resolve and reach them.
 
 ### Enumeration - https://api.craft.htb
 Small API with basic GET, POST, PUT, DELETE actions, might be an interesting point of entry.
 Authentication required for POST, PUT
-<api_craft>
+![api_craft](https://github.com/zomy22/zomy22.github.io/blob/master/hackthebox/craft_images/api_craft.png)
 
 ### Enumeration - https://gogs.craft.htb
 Repository housing the code and content for api.craft.htb.
-Reviewing all commits and merge requests, dinesh’s credentials were accidentally commited and removed. There is also a test.py script ready to be used to connect to the api.
-<dinesh_creds>
+Reviewing all commits and merge requests, dinesh’s credentials were accidentally commited and removed. 
+![dinesh_creds](https://github.com/zomy22/zomy22.github.io/tree/master/hackthebox/craft_images/dinesh_creds.png)
 
-Reviewing more code in the repository and especially the functions for the POST and PUT API options  leads to finding a vulnerable python function “eval”. This function resides in the POST brew function in brew.py.
-<test.py>
+The credentials can be used in test.py
+![1_test.py](https://github.com/zomy22/zomy22.github.io/tree/master/hackthebox/craft_images/1_test.py.png)
+
+Reviewing more code in the repository and especially the functions for the POST and PUT API options  leads to finding a vulnerable python function “eval”. The issue fix by dinesh also shows this function
+![eval_in_issue_fix](https://github.com/zomy22/zomy22.github.io/tree/master/hackthebox/craft_images/eval_in_issue_fix.png)
+
+This function resides in the POST brew function in brew.py.
 
 ### Initial foothold - Exploiting python eval function
 Test 1: On local system:
-<screen_shot>
+![Test 1](https://github.com/zomy22/zomy22.github.io/tree/master/hackthebox/craft_images/test1.png)
 
 That works.
 Test 2: with a similar “if” statement like in test.py:
-<screen_shot>
+![Test 2](https://github.com/zomy22/zomy22.github.io/tree/master/hackthebox/craft_images/test2.png)
 
 That works too, however there is no result returned when it is tried on the victim end.
 
-Test 3. Ping from victim to local machine:
+Test 3: Ping from victim to local machine:
+![Test 3](https://github.com/zomy22/zomy22.github.io/tree/master/hackthebox/craft_images/test3.png)
+
 	```
   tcpdump -i tun0 -nnv icmp
   ```
