@@ -1,4 +1,4 @@
-# 						  Craft - Hack The Box WalkThrough
+# 						  Hack The Box - Craft 
 
 ### Victim IP: 10.10.10.110 Victim OS: Linux
 ### Enumeration - Namp
