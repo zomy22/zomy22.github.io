@@ -105,7 +105,7 @@ Authenticate with discovered credentials and enumerate the git repository
 All commits/merge requests ==> ssh private key and vault write commands are discovered
 ![gilfoyle_ssh_key](/images/gilfolye_ssh.png)
   
-Save the ssh private key, apply the normal permissions (chmod 400), and then authenticate with the SSH private key and enter gilfoyle's password (dumped from the db/git password) as passphrase.
+Save the ssh private key, apply the normal permissions (chmod 400), and then authenticate with it and enter gilfoyle's password (dumped from the db/git password) as passphrase.
 ![gilfoyle_ssh_key](/images/user.txt.png)
 
 ### Elevating to root – Leveraging Vault SSH Secrets Engine
@@ -118,8 +118,8 @@ Gilfoyle's OTP setup:
 
 ![otp_setup](/images/vault_write_ssh_otp.png)
 
-Reviewing the SSH Secrets Engine Documentation: https://www.vaultproject.io/docs/secrets/ssh/one-time-ssh-passwords.html 
-gilfoyle@craft:~$ vault write ssh/creds/root_otp ip=127.0.0.1
+After reviewing the SSH Secrets Engine Documentation: https://www.vaultproject.io/docs/secrets/ssh/one-time-ssh-passwords.html 
+
 ![vault_write_ssh_otp](/images/vault_write_ssh_otp_new.png)
 
 Then SSH to the host using the generated key and the root user:
