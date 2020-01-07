@@ -39,7 +39,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 # Nmap done at Thu Dec 19 22:54:28 2019 -- 1 IP address (1 host up) scanned in 47.95 seconds   
 ```
 ### Enumerating the web page - https://craft.htb
-![homepage](/images/1_test.py.png)
+![homepage](/images/homepage.png)
 
 The "API" link points to api.craft.htb and the "Sign in" button to "gogs.craft.htb" therefore we add these as entries to our hosts file in other to be able to resolve and reach them.
 
