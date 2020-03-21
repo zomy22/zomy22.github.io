@@ -220,4 +220,5 @@ Likely due to the fact that I was testing with the active user svc-alfresco
 
 Thanks for reading!
 
-L8Comerz
+<img src="https://www.hackthebox.eu/badge/image/206328" alt="Hack The Box">
+

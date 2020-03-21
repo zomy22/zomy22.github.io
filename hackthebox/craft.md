@@ -1,6 +1,7 @@
 # 						  Hack The Box - Craft 
 
-### Victim IP: 10.10.10.110 Victim OS: Linux
+![info_card](/images/info_card.png)
+
 ### Enumeration - Namp
 ```
 nmap -sV -sC -oA nmap_full -p1,65535 10.10.10.110
