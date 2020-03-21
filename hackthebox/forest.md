@@ -6,7 +6,8 @@
 
 #### Scanning
 
-```Full TCP Nmap Scan:
+```
+Full TCP Nmap Scan:
 PORT      STATE SERVICE      REASON          VERSION
 53/tcp    open  domain?      syn-ack ttl 127
 88/tcp    open  kerberos-sec syn-ack ttl 127 Microsoft Windows Kerberos (server time: 2020-03-11 19:16:21Z)
