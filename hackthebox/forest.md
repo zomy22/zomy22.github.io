@@ -1,7 +1,5 @@
 #  Forest - HackTheBox WriteUp
 
-
-
 ![info_card](/images/forest/info_card.png)
 
 ## Enumeration & Information Gathering 
@@ -38,8 +36,8 @@ PORT      STATE SERVICE      REASON          VERSION
 49684/tcp open  msrpc        syn-ack ttl 127 Microsoft Windows RPC
 49706/tcp open  msrpc        syn-ack ttl 127 Microsoft Windows RPC
 49908/tcp open  msrpc        syn-ack ttl 127 Microsoft Windows RPC
-
 ```
+
 #### Enumerating Samba (Enum4linux)
 Discovered the following users: 
 
@@ -121,6 +119,7 @@ neo4j console
 
 bloodhoud
 ```
+
 and uploading the output from the victim:
 
 ![hound_out](/images/forest/hound_out.png)
