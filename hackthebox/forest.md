@@ -81,6 +81,7 @@ user:[santi] rid:[0x480]
 ## Exploitation
 
 Kerberoasting with Impacket - GetNPUsers.py
+
 [https://github.com/SecureAuthCorp/impacket/blob/master/examples/GetNPUsers.py](https://github.com/SecureAuthCorp/impacket/blob/master/examples/GetNPUsers.py)
 
 Doing a bit of cleanup to obtain only the usernames and trying all the users with Impacket GetNPUsers.py
