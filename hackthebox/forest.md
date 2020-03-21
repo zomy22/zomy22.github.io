@@ -2,7 +2,7 @@
 
 Info Card
 
-![info_card](images/info_card.png)
+![info_card](images/forest/info_card.png)
 
 ## Enumeration & Information Gathering 
 
