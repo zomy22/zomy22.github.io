@@ -39,8 +39,9 @@ PORT      STATE SERVICE      REASON          VERSION
 49908/tcp open  msrpc        syn-ack ttl 127 Microsoft Windows RPC
 ```
 
-#### Enumerating Samba (Enum4linux)
-Discovered the following users: 
+#### Smb Enumeration
+
+enum4linux 10.10.10.161. The following users were identified:
 
 ```
 user:[Administrator] rid:[0x1f4]
