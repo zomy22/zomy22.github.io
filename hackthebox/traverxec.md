@@ -1,9 +1,12 @@
 # <center>Traverxec  - HackTheBox WriteUp</center>
 ![info_card](/images/traverxec/info_card.png)
+
 ## Enumeration & Information Gathering 
 
 #### Scanning
->Nmap done: 1 IP address (0 hosts up) scanned in 2.14 seconds
+
+```
+Nmap done: 1 IP address (0 hosts up) scanned in 2.14 seconds
 root@kali:/var/www/html/pub# nmap -T4 10.10.10.165
 Starting Nmap 7.80 ( https://nmap.org ) at 2020-04-11 10:39 EDT
 Nmap scan report for 10.10.10.165
@@ -14,6 +17,8 @@ PORT   STATE SERVICE
 80/tcp open  http
 
 Nmap done: 1 IP address (1 host up) scanned in 6.13 seconds
+```
+
 #### Service Enumeration
 
 Home page:
