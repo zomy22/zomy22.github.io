@@ -1,5 +1,5 @@
 # <center>Traverxec  - HackTheBox WriteUp</center>
-![info_card](/images/traverxec/traverxec/info_card.png)
+![info_card](/images/traverxec/info_card.png)
 ## Enumeration & Information Gathering 
 
 #### Scanning
@@ -74,7 +74,7 @@ After much enumeration we go back to the nhttpd.conf file and remember that home
 
 Turns out that we can, but we can't access files such as .bashrc or .ssh folder
 
-![david_home](/images/traverxec/david_home)
+![david_home](/images/traverxec/david_home.png)
 
 We try navigating to the public_www folder on the shell and we are successful
 
@@ -85,14 +85,14 @@ We grab the gz file, extract it and ssh with the private key.
 But we are blocked by a passphrase and the initial password **Nowonly4me** doesn't work here 
 
 Cracking SSH passphrase with John
-![crack_ssh](/images/traverxec/crack_ssh)
+![crack_ssh](/images/traverxec/crack_ssh.png)
 
 
 ## Privilege Escalation
 
 SSH using David's credentials we are able to Login.
 Enumerating the home directory we find a shell script that runs a journalctl with sudo. 
-![server_status](/images/traverxec/server_status)
+![server_status](/images/traverxec/server_status.png)
 
 running the command as is in the script works okay
 
