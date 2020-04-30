@@ -162,7 +162,7 @@ We are able to login!
 
 Now we can try a command injection simply by appending bash commands 
 
-![wecome_admin](/images/cronos/wecome_admin.png)
+![welcome_admin](/images/cronos/welcome_admin.png)
 
 
 #### Foothold 
@@ -229,9 +229,6 @@ The on home folder we see that there is a user noulis. Trying to SSH with the us
 
 Since we have the user flag we can try to grab and and indeed we can read it!
 
-
-
-![evidence](evidence) 
 
 
 
