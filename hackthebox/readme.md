@@ -2,11 +2,22 @@
 
 [HTB Profile](https://www.hackthebox.eu/home/users/profile/206328)
 
-[Cratf - Linux [Medium]](https://zomy22.github.io/hackthebox/craft)
+[Craft - Linux [Medium]](https://zomy22.github.io/hackthebox/craft)
 
 [Forest - Windows [Easy] ](https://zomy22.github.io/hackthebox/forest)
 
 [Traverxec - Linux [Easy] ](https://zomy22.github.io/hackthebox/traverxec)
+
+[Cronos - Linux [Medium] ](https://zomy22.github.io/hackthebox/cronos)
+
+
+
+
+
+
+
+
+
 
 
 
