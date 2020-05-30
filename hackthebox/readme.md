@@ -10,6 +10,7 @@
 
 [Cronos - Linux [Medium] ](https://zomy22.github.io/hackthebox/cronos)
 
+[Resolute - Windows [Medium] ](https://zomy22.github.io/hackthebox/resolute)
 
 
 
