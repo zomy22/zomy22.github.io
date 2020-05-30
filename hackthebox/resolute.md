@@ -281,6 +281,11 @@ With this passowrd, it is now possible to authenticate to the system and this ca
 
 Using Evil-WinRM, authentication is successful!
 
+Using Evil-WinRM, authentication is successful!
+And the user flag can also be read at this point 
+
+![user](/images/resolute/user.png)
+
 
 #### Post Exploitation Enumeration 
 
