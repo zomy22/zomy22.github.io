@@ -12,6 +12,7 @@
 
 [Resolute - Windows [Medium] ](https://zomy22.github.io/hackthebox/resolute)
 
+[Monteverde - Windows [Medium] ](https://zomy22.github.io/hackthebox/monteverde)
 
 
 
