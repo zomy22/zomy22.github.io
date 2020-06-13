@@ -345,6 +345,9 @@ After uploading this ADConnect script to the tartget
 
 The root flag can now be read.
 
+![root](/images/monteverde/root.png)
+
+
 **Conclusion:** 
 
 This box was realtively easily, yet, stil offering things to learn such as the privilege escalition method via password synchronization in Azure AD.
