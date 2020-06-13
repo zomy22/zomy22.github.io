@@ -2,7 +2,7 @@
 
 ![info](/images/monteverde/info.png)
 
-Summary: 
+
 ## Enumeration & Information Gathering
  
 #### Scanning 
