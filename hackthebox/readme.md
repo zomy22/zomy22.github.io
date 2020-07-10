@@ -14,6 +14,9 @@
 
 [Monteverde - Windows [Medium] ](https://zomy22.github.io/hackthebox/monteverde)
 
+[Servmon - Windows [Easy] ](https://zomy22.github.io/hackthebox/servmon)
+
+[Book - Linux [Medium] ](https://zomy22.github.io/hackthebox/book)
 
 
 
