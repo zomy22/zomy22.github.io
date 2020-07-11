@@ -1,5 +1,10 @@
 # Book - HackTheBox WriteUp
 
+**Book** was an awesome box with a lot to learn, starting with a vintage SQL truncation vulnerability, then a Cross site scripting attack via PDF's to obtain user credentials and finally taking advantage of a vulnerability on Lograte to escalate privileges to root.
+
+
+![info](/images/book/info.png)
+
 ### Enumeration & Information Gathering
 
 Nmap:
@@ -19,7 +24,10 @@ Nmap:
 ```
 
 Gobuster Port 80:
+
 ```
+gobuster -u http://10.10.10.176:80/ -w /usr/share/seclists/Discovery/Web-Content/common.txt -e -k -l -s "200,204,301,302,307,401,403" -x "txt,html,php,asp,aspx,jsp" -o "/mnt/hgfs/pwn_share/Machines/Book/results/10.10.10.176/scans/tcp_80_http_gobuster.txt
+
 /admin (Status: 301) [Size: 312]
 /books.php (Status: 302) [Size: 0]
 /contact.php (Status: 302) [Size: 0]
