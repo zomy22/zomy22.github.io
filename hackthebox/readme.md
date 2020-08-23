@@ -20,7 +20,7 @@
 
 [Cascade - Windows [Medium] ](https://zomy22.github.io/hackthebox/cascade)
 
-[Magic - Windows [Medium] ](https://zomy22.github.io/hackthebox/magic)
+[Magic - Linux [Medium] ](https://zomy22.github.io/hackthebox/magic)
 
 
 
