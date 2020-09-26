@@ -22,6 +22,7 @@
 
 [Magic - Linux [Medium] ](https://zomy22.github.io/hackthebox/magic)
 
+[Admirer - Linux [Easy] ](https://zomy22.github.io/hackthebox/admirer)
 
 
 
