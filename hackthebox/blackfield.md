@@ -377,7 +377,7 @@ Trying to reset the password for svc_backup fails but works for audit2020.
 ![pass_reset](/images/blackfield/pass_reset.png)
 
 The password can subsequently be used to login to the target
--
+
 **User 3 svc_backup:**
 
 
