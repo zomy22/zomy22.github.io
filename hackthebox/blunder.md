@@ -65,7 +65,7 @@ From this, it can be assumed that ther is a user "fergus"
 
 /admin is the login page, and when viewing the page source, it potentially discloses the version of bludit as 3.9.2
 
-![versions](/images/bludit/versions.png)
+![version](/images/blunder/version.png)
 
 Searching n google and searchsploit for bludit exploits leading the following 
 
@@ -117,7 +117,11 @@ This can be solved by making a get request first and grabbing the csrf token and
 Using cewl to create a wordlist
 
 Write a python script to bruteforce login with cewl output. 
-Handle csrf by using sessions and making a get request before posting the form data
+
+The IP is set to 127.0.0.1 with burp proxy configured to intercept and forward the traffic to 10.10.10.191. With this we can inspect the traffic in burp also.
+
+
+Csrf is handled by using sessions and making a get request before posting the form data with the obtained token
 
 blunder.py
 ```
@@ -163,7 +167,7 @@ for password in lines:
         print("Failed %s:%s" % ("fergus", password[:-1]))
 ```
 
-![evidence](evidence) 
+![burp_pass](/images/blunder/burp_pass.png)
 
 #### Foothold 
 Since the password has been discovered, it's time to move on to exploitong the CMS.
