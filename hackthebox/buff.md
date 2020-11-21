@@ -431,42 +431,13 @@ Ethernet adapter Ethernet0:
                                        10.10.10.2
 
 C:\Windows\system32>cd c:\users\administrator
-cd c:\users\administrator                                
-                                                         
-c:\Users\Administrator>dir                               
-dir                                                      
- Volume in drive C has no label.                         
- Volume Serial Number is A22D-49F7
-
- Directory of c:\Users\Administrator
-
-20/07/2020  12:08    <DIR>          .
-20/07/2020  12:08    <DIR>          ..
-18/07/2020  17:36    <DIR>          3D Objects
-16/06/2020  16:48    <DIR>          CloudMe
-18/07/2020  17:36    <DIR>          Contacts
-18/07/2020  17:36    <DIR>          Desktop
-18/07/2020  17:36    <DIR>          Documents
-18/07/2020  17:36    <DIR>          Downloads
-18/07/2020  17:36    <DIR>          Favorites
-18/07/2020  17:36    <DIR>          Links
-18/07/2020  17:36    <DIR>          Music
-16/06/2020  16:44    <DIR>          OneDrive
-18/07/2020  17:36    <DIR>          Pictures
-18/07/2020  17:36    <DIR>          Saved Games
-18/07/2020  17:36    <DIR>          Searches
-18/07/2020  17:36    <DIR>          Videos
-               0 File(s)              0 bytes
-              16 Dir(s)   7,656,697,856 bytes free
+cd c:\users\administrator
 
 c:\Users\Administrator>cd Desktop
 cd Desktop
 
 c:\Users\Administrator\Desktop>dir
 dir
- Volume in drive C has no label.
- Volume Serial Number is A22D-49F7
-
  Directory of c:\Users\Administrator\Desktop
 
 18/07/2020  17:36    <DIR>          .
