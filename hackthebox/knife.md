@@ -6,7 +6,6 @@ Difficulty: Easy
 
 IP: 10.10.10.242
 
-Vulnerabilities: 
 
 ### Scanning, Recon & Information Gathering
 
