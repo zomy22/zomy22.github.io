@@ -6,6 +6,7 @@ Difficulty: Easy
 
 IP: 10.10.10.242
 
+Vulnerabilities: PHP 8.1.0-dev version was released with a backdoor on March 28th 2021, but the backdoor was quickly discovered and removed. If this version of PHP runs on a server, an attacker can execute arbitrary code by sending the **User-Agentt** header. Knife exec was used to escalate privileges too root.
 
 ### Scanning, Recon & Information Gathering
 
