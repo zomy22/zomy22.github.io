@@ -102,9 +102,10 @@ And then copying the contents to a new script in /tmp/my.rb
 Executing the script
 ```sudo /usr/bin/knife exec '/tmp/my.rb'```
 
+```
 id
 cat /root/root.txt
-
+```
 
 
 ![root](../images/knife/root.jpg)
