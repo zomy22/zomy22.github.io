@@ -1,4 +1,4 @@
-#  Buff - HackTheBox WriteUp
+#  Knife - HackTheBox WriteUp
 
 OS: Windows 
 
@@ -108,4 +108,3 @@ cat /root/root.txt
 
 
 ![root](../images/knife/root.jpg)
-
